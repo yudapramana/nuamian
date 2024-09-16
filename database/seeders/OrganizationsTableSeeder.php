@@ -25,8 +25,8 @@ class OrganizationsTableSeeder extends Seeder
                 'name' => 'Man IC Sumatera Barat',
                 'email' => 'admin@manic.com',
                 'is_active' => 0,
-                'created_at' => '2024-09-13 04:50:48',
-                'updated_at' => '2024-09-13 04:50:48',
+                'created_at' => NULL,
+                'updated_at' => NULL,
             ),
             1 => 
             array (
@@ -34,8 +34,8 @@ class OrganizationsTableSeeder extends Seeder
                 'name' => 'MAN 1 Kota Padang',
                 'email' => 'admin@man1kotapadang.com',
                 'is_active' => 0,
-                'created_at' => '2024-09-13 07:02:39',
-                'updated_at' => '2024-09-13 07:02:39',
+                'created_at' => NULL,
+                'updated_at' => NULL,
             ),
             2 => 
             array (
@@ -43,8 +43,8 @@ class OrganizationsTableSeeder extends Seeder
                 'name' => 'MAN 2 Kota Padang',
                 'email' => 'admin@man2kotapadang.com',
                 'is_active' => 0,
-                'created_at' => '2024-09-13 07:02:58',
-                'updated_at' => '2024-09-13 07:02:58',
+                'created_at' => NULL,
+                'updated_at' => NULL,
             ),
             3 => 
             array (
@@ -52,8 +52,8 @@ class OrganizationsTableSeeder extends Seeder
                 'name' => 'MAN 3 Kota Padang',
                 'email' => 'admin@man3kotapadang.com',
                 'is_active' => 0,
-                'created_at' => '2024-09-13 07:03:10',
-                'updated_at' => '2024-09-13 07:03:10',
+                'created_at' => NULL,
+                'updated_at' => NULL,
             ),
             4 => 
             array (
@@ -61,8 +61,8 @@ class OrganizationsTableSeeder extends Seeder
                 'name' => 'MAN 4 Kota Padang',
                 'email' => 'admin@man4kotapadang.com',
                 'is_active' => 0,
-                'created_at' => '2024-09-13 07:03:24',
-                'updated_at' => '2024-09-13 07:03:24',
+                'created_at' => NULL,
+                'updated_at' => NULL,
             ),
         ));
         

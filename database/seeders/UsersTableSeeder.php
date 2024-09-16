@@ -29,8 +29,8 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 2,
                 'password' => Hash::make('12345678'),
                 'remember_token' => NULL,
-                'created_at' => '2024-09-03 14:25:01',
-                'updated_at' => '2024-09-03 14:25:01',
+                'created_at' => NULL,
+                'updated_at' => NULL,
                 'organization_id' => null
             ),
             array (
@@ -41,8 +41,8 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 2,
                 'password' => Hash::make('12345678'),
                 'remember_token' => NULL,
-                'created_at' => '2024-09-03 14:25:01',
-                'updated_at' => '2024-09-03 14:25:01',
+                'created_at' => NULL,
+                'updated_at' => NULL,
                 'organization_id' => null
             ),
             array (
@@ -53,8 +53,8 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 2,
                 'password' => Hash::make('12345678'),
                 'remember_token' => NULL,
-                'created_at' => '2024-09-03 14:25:01',
-                'updated_at' => '2024-09-03 14:25:01',
+                'created_at' => NULL,
+                'updated_at' => NULL,
                 'organization_id' => null
             ),
             array (
@@ -65,8 +65,8 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 2,
                 'password' => Hash::make('12345678'),
                 'remember_token' => NULL,
-                'created_at' => '2024-09-03 14:25:01',
-                'updated_at' => '2024-09-03 14:25:01',
+                'created_at' => NULL,
+                'updated_at' => NULL,
                 'organization_id' => null
             ),
             array (
@@ -77,8 +77,8 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 4,
                 'password' => Hash::make('12345678'),
                 'remember_token' => NULL,
-                'created_at' => '2024-09-03 14:25:01',
-                'updated_at' => '2024-09-03 14:25:01',
+                'created_at' => NULL,
+                'updated_at' => NULL,
                 'organization_id' => 1
             ),
             array (
@@ -89,8 +89,8 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 4,
                 'password' => Hash::make('12345678'),
                 'remember_token' => NULL,
-                'created_at' => '2024-09-03 14:25:01',
-                'updated_at' => '2024-09-03 14:25:01',
+                'created_at' => NULL,
+                'updated_at' => NULL,
                 'organization_id' => 2
             ),
             array (
@@ -101,8 +101,8 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 4,
                 'password' => Hash::make('12345678'),
                 'remember_token' => NULL,
-                'created_at' => '2024-09-03 14:25:01',
-                'updated_at' => '2024-09-03 14:25:01',
+                'created_at' => NULL,
+                'updated_at' => NULL,
                 'organization_id' => 3
             ),
         ));
