@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-
+            
+            $table->foreignId('organization_id')->nullable()->constrained()->nullOnDelete();
             $table->string('book_code')->unique();
             $table->string('title');
             $table->string('slug');

@@ -17,9 +17,9 @@ class AuthorResource extends Resource
 {
     protected static ?string $model = Author::class;
 
-    protected static ?string $slug = 'journal/authors';
+    protected static ?string $slug = 'repository/authors';
 
-    protected static ?string $navigationGroup = 'Journal';
+    protected static ?string $navigationGroup = 'Repository';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
@@ -31,7 +31,8 @@ class AuthorResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->unique(Author::class, 'name', ignoreRecord: true),
 
                 Forms\Components\TextInput::make('email')
                     ->label('Email address')

@@ -21,11 +21,14 @@ class MemberResource extends Resource
 {
     protected static ?string $model = Member::class;
 
-    protected static ?string $slug = 'manajemen/members';
+    protected static ?string $slug = 'management/members';
 
     protected static ?string $navigationGroup = 'Management';
 
     protected static ?string $navigationIcon = 'heroicon-o-identification';
+
+    protected static ?int $navigationSort = 3;
+
 
     public static function form(Form $form): Form
     {
@@ -51,11 +54,25 @@ class MemberResource extends Resource
             ]);
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        $user = auth()->user();
+        $orgID = $user->organization_id;
+        if($orgID) {
+            return parent::getEloquentQuery()->whereHas('user', function($q) use($orgID) {
+                $q->where('organization_id', $orgID);
+            });
+        } else {
+            return parent::getEloquentQuery();
+        }
+    }
+
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
+                ->label('Name')
                 ->searchable(),
                 Tables\Columns\TextColumn::make('number')->searchable(),
                 Tables\Columns\TextColumn::make('username')->searchable(),

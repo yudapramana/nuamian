@@ -22,9 +22,9 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static ?string $slug = 'journal/categories';
+    protected static ?string $slug = 'repository/categories';
 
-    protected static ?string $navigationGroup = 'Journal';
+    protected static ?string $navigationGroup = 'Repository';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -38,7 +38,7 @@ class CategoryResource extends Resource
                 ->required()
                 ->maxLength(255)
                 ->live(onBlur: true)
-                ->unique(Category::class, 'slug', ignoreRecord: true)
+                ->unique(Category::class, 'name', ignoreRecord: true)
                 ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
                 // ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
 

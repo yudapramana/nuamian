@@ -18,11 +18,14 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $slug = 'manajemen/users';
+    protected static ?string $slug = 'management/users';
 
     protected static ?string $navigationGroup = 'Management';
 
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
+
+    protected static ?int $navigationSort = 2;
+
 
     public static function form(Form $form): Form
     {
@@ -32,6 +35,10 @@ class UserResource extends Resource
                     ->required(fn (string $context): bool => $context === 'create');
         return $form
             ->schema([
+                Forms\Components\Select::make('organization_id')
+                ->relationship('organization', 'name')
+                ->searchable()
+                ->preload(),
                 Forms\Components\TextInput::make('name'),
                 Forms\Components\TextInput::make('email')->email(),
                 Forms\Components\Select::make('role_id')
@@ -43,16 +50,34 @@ class UserResource extends Resource
             ]);
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        $user = auth()->user();
+        $orgID = $user->organization_id;
+        if($orgID) {
+            return parent::getEloquentQuery()->where('organization_id', $orgID);
+        } else {
+            return parent::getEloquentQuery();
+        }
+    }
+
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('organization.name')
+                ->placeholder('No Organization'),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('role.name'),
             ])
-            ->modifyQueryUsing(function (Builder $query) { 
-                return $query->whereNotIn('role_id', [5]); 
+            ->modifyQueryUsing(function (Builder $query) {
+                // $user = auth()->user();
+                // $orgID = $user->organization_id;
+                // if($orgID) {
+                //     # Where Query of User that Org ID is it
+                //     return $query->where('organization_id', $orgID); 
+                // } 
             }) 
             ->filters([
                 //

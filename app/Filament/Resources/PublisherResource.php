@@ -17,9 +17,9 @@ class PublisherResource extends Resource
 {
     protected static ?string $model = Publisher::class;
 
-    protected static ?string $slug = 'journal/publishers';
+    protected static ?string $slug = 'repository/publishers';
 
-    protected static ?string $navigationGroup = 'Journal';
+    protected static ?string $navigationGroup = 'Repository';
 
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
@@ -31,7 +31,8 @@ class PublisherResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->unique(Publisher::class, 'name', ignoreRecord: true),
 
                 Forms\Components\TextInput::make('email')
                     ->label('Email address')

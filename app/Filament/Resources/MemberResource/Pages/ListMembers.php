@@ -23,10 +23,10 @@ class ListMembers extends ListRecords
     public function getTabs(): array
     {
         return [
-            'registered' => Tab::make()->query(fn ($query) => $query->where('is_active', 0))
-                        ->badge(Member::query()->where('is_active', false)->count()),
-            'member' => Tab::make()->query(fn ($query) => $query->where('is_active', 1))
-                        ->badge(Member::query()->where('is_active', true)->count()),
+            'registered' => Tab::make()->query(fn ($query) => $query->where('is_active', 0)),
+                        // ->badge(Member::query()->where('is_active', false)->count()),
+            'member' => Tab::make()->query(fn ($query) => $query->where('is_active', 1)),
+                        // ->badge(Member::query()->where('is_active', true)->count()),
 
         ];
     }

@@ -29,9 +29,9 @@ class BookResource extends Resource
 {
     protected static ?string $model = Book::class;
 
-    protected static ?string $slug = 'journal/books';
+    protected static ?string $slug = 'repository/books';
 
-    protected static ?string $navigationGroup = 'Journal';
+    protected static ?string $navigationGroup = 'Repository';
 
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
@@ -46,6 +46,13 @@ class BookResource extends Resource
                 ->schema([
                     Forms\Components\Section::make()
                     ->schema([
+                        Forms\Components\Select::make('organization_id')
+                            ->relationship('organization', 'name')
+                            ->searchable()
+                            ->preload()
+                            ->visible(fn() => auth()->user()->is_admin)
+                            ->columnSpan('full'),
+                            
                         Forms\Components\TextInput::make('book_code')
                             ->required()
                             ->columnSpan('full'),
@@ -158,6 +165,17 @@ class BookResource extends Resource
             ->columns(3);
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        $user = auth()->user();
+        $orgID = $user->organization_id;
+        if($orgID) {
+            return parent::getEloquentQuery()->where('organization_id', $orgID);
+        } else {
+            return parent::getEloquentQuery();
+        }
+    }
+    
     public static function table(Table $table): Table
     {
         return $table

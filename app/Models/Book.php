@@ -45,4 +45,9 @@ class Book extends Model
     {
         return "/storage/" . $this->thumbnail;
     }
+
+    public function organization(): BelongsTo
+    {
+        return $this->belongsTo(Organization::class);
+    }
 }

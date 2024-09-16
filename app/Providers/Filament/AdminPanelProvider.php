@@ -41,7 +41,7 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\FilamentInfoWidget::class,
             ])
             ->navigationGroups([
-                'Journal',
+                'Repository',
                 'Management',
             ])
             ->middleware([
